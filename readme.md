@@ -1,4 +1,4 @@
-# GA-Bot
+# WDIr-Bot
 A general purpose slackbot for queueing TA appointments & taking attendance
 
 Using the [slackbot NPM](https://github.com/rmcdaniel/node-slackbot)
@@ -13,11 +13,14 @@ This version updated & maintained by [Colin Hart](https://github.com/colintherob
 -----
 # Setup
 
-1. Create a bot on Slack [here](https://my.slack.com/services/new/bot) and invite the bot to your channel.
-1. Set the bot's key to an environment variable `SLACKBOT_KEY`
+1. Slack bot's name is [@mirovia](https://en.wikipedia.org/wiki/Mirovia)
+1. Set the api key in a .env file to an environment variable `SLACKBOT_KEY`
+  - slack Colin for apikey
+1. Invite @mirovia to whatever Panthalassa channel you want to use it in.
 1. Run `node app.js` to start the bot.
 1. Communicate with the bot by typing commands directly to the bot via mention or private message in Slack.
 1. There are permission levels for certain commands. These can be set with environment variables `TA_ID` and `ADMIN_ID`
+1. Run `@mirovia what's my user id?` to get your Slack id
 
 -------
 # Customization
