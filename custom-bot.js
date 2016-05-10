@@ -1,18 +1,13 @@
 var fs = require('fs'),
     bot_flavor = require('./bot-flavor');
 
-var present =
-      JSON.parse(fs.readFileSync("./attendance-db.json","utf8")).present,
-    secret =
-      JSON.parse(fs.readFileSync("./attendance-db.json", "utf8")).secret,
-    queue =
-      JSON.parse(fs.readFileSync("./db.json", "utf8")).queue;
+var queue = JSON.parse(fs.readFileSync("./db.json", "utf8")).queue;
 
 function CustomBot(bot, ta_id, admin_id){
   this.bot = bot;
   this.ta_id = ta_id;
   this.admin_id = admin_id;
-
+  this.zoomLink = "";
   return this;
 }
 
@@ -36,6 +31,8 @@ CustomBot.prototype.backupAttendance = function(present_array, secret){
 };
 
 CustomBot.prototype.parseMessageText = function(){
+  // split pulls the user name out i think
+  // needs to be adjusted to take urls passed in for setZoom
   var text = this.message.text || "";
   text = text.split(/<.*>:?\s*/)[1] || "";
 
@@ -109,13 +106,20 @@ CustomBot.prototype.removeMe = function(){
   }
 };
 
+CustomBot.prototype.setZoom = function() {
+  // Set this.zoomLink to the url passed in. pass it through a url shortener
+  // this.zoomLink
+  this.bot.sendMessage(this.channel, `Feature Coming Soon`);
+};
+
 CustomBot.prototype.next = function(){
   var currentStudent = queue.shift();
-
+  // TODO: Change `Zoom` to the set url above.
   if(currentStudent){
     this.bot.sendMessage(
       this.channel,
-      "Up now: <@" + currentStudent.id + ">! \n " + this.prettyQueue()
+      `Up now: <@${currentStudent.id}>! Let's meet in Zoom. \n
+       ${this.prettyQueue()}`
     );
 
     this.backup(queue);
@@ -130,9 +134,9 @@ CustomBot.prototype.next = function(){
 CustomBot.prototype.help = function(){
   this.bot.sendMessage(
     this.message.channel,
-    "All commands work only when you specifically mention me. " +
-    "Type `queue me` or `q me` to queue yourself and `status` to check " +
-    "current queue. Type `remove me` to remove yourself."
+    `All commands work only when you specifically mention me.
+    Type \`queue me\` or \`q me\` to queue yourself and \`status\` to check
+    current queue. Type \`remove me\` to remove yourself.`
   );
 };
 
@@ -252,20 +256,17 @@ CustomBot.prototype.respond = function(message){
     case "help":
       this.help();
       break;
-    case secret:
-      this.addToAttendance();
-      break;
     case "clear queue":
       if(this.access_level >= 2) this.clearQueue();
       break;
     case "next":
       if(this.access_level >= 2) this.next();
       break;
-    case "attendance":
-      if(this.access_level >= 2) this.attendance();
-      break;
     case "clear attendance":
       if(this.access_level >= 2) this.clearAttendance();
+      break;
+    case "set zoom to":
+      if(this.access_level >= 2) this.setZoom()
       break;
     default:
       if(/set secret\s*.*/.test(text)){

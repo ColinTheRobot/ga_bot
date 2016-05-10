@@ -9,6 +9,7 @@ function slackbot(token) {
     this.messageID = 0;
     this.selfData = {};
     this.mention = "";
+
     return this;
 }
 
@@ -60,7 +61,7 @@ slackbot.prototype.api = function(method, params, cb) {
       });
     }
   });
-  
+
   req.write(post_data);
   return req.end();
 };
@@ -84,7 +85,8 @@ slackbot.prototype.sendMessage = function(channel, text) {
     id: ++this.messageID,
     type: 'message',
     channel: channel,
-    text: text
+    text: text,
+    unfurl_links: false
   };
   return this.ws.send(JSON.stringify(message));
 };
@@ -99,7 +101,7 @@ slackbot.prototype.connect = function() {
         var message = JSON.parse(data);
         self.handle(message);
       });
-    });    
+    });
 };
 
 module.exports = slackbot;

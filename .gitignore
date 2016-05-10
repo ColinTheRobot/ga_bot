@@ -2,6 +2,8 @@ env-vars.js
 
 *.swp
 *.swo
+.env
 
+node_modules
 .DS_STORE
 

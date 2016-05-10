@@ -11,10 +11,12 @@
   "license": "ISC",
   "dependencies": {
     "async": "^1.4.2",
+    "dotenv": "^2.0.0",
     "express": "^4.13.3",
     "https": "^1.0.0",
     "node-slackbot": "0.0.6",
     "nodemon": "^1.8.1",
+    "pryjs": "^1.0.2",
     "querystring": "^0.2.0",
     "request": "^2.60.0",
     "ws": "^0.7.2",

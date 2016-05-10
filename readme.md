@@ -6,7 +6,9 @@ by [Richard McDaniel](https://github.com/rmcdaniel)
 
 Based on [dianabot](https://github.com/maxrpeterson/dianabot) by [Max R. Peterson](https://github.com/maxrpeterson)
 
-This version updated & maintained by [Bryan Mytko](https://github.com/bryanmytko)
+Based on [GA-Bot](https://github.com/bryanmytko/ga-bot)
+
+This version updated & maintained by [Colin Hart](https://github.com/colintherobot)
 
 -----
 # Setup
@@ -22,12 +24,12 @@ This version updated & maintained by [Bryan Mytko](https://github.com/bryanmytko
 
 GA-Bot allows for custom interaction via the `bot_flavor.js` file. You can override the default messages here by adding data for the specific flavor keys:
 
-- `present` Response when a student sends the attendance secret word.
+- `present` Response when a student sends the attendance secret word. (Removed for now)
 - `already_queued` Response when you try to queue again.
-- `secret_set` Message logged to the server when the secret changes.
+- `secret_set` Message logged to the server when the secret changes. (Removed for now)
 - `remove` Response for leaving the queue.
 - `empty_queue` Display message for clearing the queue.
-- `attendance_cleared` Display message for clearing attendnace.
+- `attendance_cleared` Display message for clearing attendance. (Removed for now)
 - `quotes` An array of quotes chosen at random when a user queues.
 - `greeting` Message logged to the server when the bot has connected successfully.
 
@@ -40,17 +42,17 @@ All commands work by mentioning the bot directly, using the `@` mention system o
 - `remove` or `remove me` - remove yourself from the queue
 - `status` - display the current status of/who is in the queue
 - `what is my user id?` - the bot will give you your Slack internal user id.
-- `<secret word>` - send the secret word to be marked as present for attendance.
+- `<secret word>` - send the secret word to be marked as present for attendance. (Removed for now)
 - `help` - displays a list of the commands available to anyone who is not the admin/TA
 
 Commands only available for the TA & Admin:
 - `next` - removes the first person from the queue and sends a message to alert them that it is their turn. It also displays the new status of the queue
 - `clear queue` - clears the queue.
-- `attendance` - outputs the current attendance list.
-- `clear attendance` - clears the current attendance list.
+- `attendance` - outputs the current attendance list. (Removed for now)
+- `clear attendance` - clears the current attendance list. (Removed for now)
 
 Commands only available for the Admin:
-- `set secret <secret word>` - sets the secret word for attendance.
+- `set secret <secret word>` - sets the secret word for attendance. (Removed for now)
 
 -------
 
