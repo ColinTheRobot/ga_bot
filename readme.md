@@ -20,7 +20,7 @@ This version updated & maintained by [Colin Hart](https://github.com/colintherob
 1. Run `node app.js` to start the bot.
 1. Communicate with the bot by typing commands directly to the bot via mention or private message in Slack.
 1. There are permission levels for certain commands. These can be set with environment variables `TA_ID` and `ADMIN_ID`
-1. Run `@mirovia what's my user id?` to get your Slack id
+1. Run `@mirovia what is my user id?` to get your Slack id
 
 -------
 # Customization
