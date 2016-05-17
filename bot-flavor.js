@@ -6,11 +6,17 @@ var bot_flavor = {
   "empty_queue": null,
   "attendance_cleared": "Attendance cleared",
   "attendance_zero": null,
-  "greeting": "Mugatu-Bot connected... NOW GET ME A DAMN LATTE...",
+  "greeting": `
+               The Western wave was all a-flame.
+               The day was well nigh done!
+               Almost upon the western wave
+               Rested the broad bright Sun;
+               When that strange shape drove suddenly
+               Betwixt us and the Sun.\n`,
   "quotes": [
-    "They're break dance fighting...",
-    "As a catepillar becomes a butterfly...",
-    "That Hansel... So hot right now..."
+    "The Panthalassa Ocean developed in the Neoproterozoic Era by subduction at the expense of the global Mirovia ocean.",
+    "Mirovia, surrounded the supercontinent Rodinia.",
+    "Panthalassa, surrounded the supercontinent Pangaea."
   ],
 };
 
