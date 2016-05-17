@@ -27,7 +27,8 @@
     "url": "git+https://github.com/bryanmytko/ga-bot.git"
   },
   "bugs": {
-    "url": "https://github.com/bryanmytko/ga-bot"
+    "url": "https://github.com/bryanmytko/ga-bot",
+    "url": "https://github.com/colintherobot/ga-bot"
   },
   "homepage": "https:bryanmytko/ga-bot#readme",
   "devDependencies": {

@@ -97,6 +97,11 @@ slackbot.prototype.connect = function() {
       self.selfData = data.self;
       self.mention = "<@" + self.selfData.id + ">";
       self.ws = new ws(data.url);
+
+      self.ws.on('ping', function() {
+        self.ws.pong();
+      });
+
       self.ws.on('message', function(data, flags) {
         var message = JSON.parse(data);
         self.handle(message);
